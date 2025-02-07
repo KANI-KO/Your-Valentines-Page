@@ -135,17 +135,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- No Button Click Functionality ---
     noButton.addEventListener("click", () => {
-        if (noClicks === 5) {  // On the 6th click, show alternative Yes button
+        if (noClicks === 5) {  // On the 6th click
             questionText.innerText = "Seems like you're a bit hesitant... How about clicking 'Yes, please!' instead?";
-            noButton.style.display = "none";
-
+            noButton.style.display = "none"; // Hide original No button
+    
+            // Create alternative Yes button with initial styles
             let alternativeYesButton = document.createElement("button");
             alternativeYesButton.id = "alternative-yes-btn";
             alternativeYesButton.innerText = "Yes, please!";
             alternativeYesButton.style.fontSize = initialFontSize + "px";
             alternativeYesButton.style.padding = initialPadding;
             document.querySelector(".buttons").appendChild(alternativeYesButton);
-
+    
             alternativeYesButton.addEventListener("click", handleYesClick);
         } else {
             if (noClicks < messages.length) {
@@ -153,10 +154,16 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 questionText.innerText = messages[messages.length - 1];
             }
-            // Increase Yes button size exponentially
-            yesSize *= growthFactor;
-            yesButton.style.fontSize = yesSize + "px";
-            yesButton.style.padding = (yesSize / 3) + "px";
+            // Increase Yes button size exponentially by updating width, height, and font size:
+            let newWidth = yesButton.clientWidth * growthFactor;
+            let newHeight = yesButton.clientHeight * growthFactor;
+            let newFontSize = parseFloat(window.getComputedStyle(yesButton).fontSize) * growthFactor;
+            yesButton.style.width = newWidth + "px";
+            yesButton.style.height = newHeight + "px";
+            yesButton.style.fontSize = newFontSize + "px";
+            // Optionally update padding if desired:
+            // yesButton.style.padding = (newFontSize / 3) + "px";
+            
             noClicks++;
         }
     });
