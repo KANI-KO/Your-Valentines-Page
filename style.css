@@ -3,11 +3,42 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    /* CHANGE: Updated font-family to include the new cursive font */
+    font-family: 'Dancing Script', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: pink;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    
 }
+
+/* CHANGE: New styles for the cat-background container and embedded cat GIFs */
+#cat-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;  /* Place behind the main content */
+    pointer-events: none;
+}
+#cat-background .cat-gif {
+    position: absolute;
+    width: 150px;
+    opacity: 0.6;
+}
+/* Positioning each GIF at different spots */
+#cat-background img:nth-child(1) {
+    top: 10%;
+    left: 5%;
+}
+#cat-background img:nth-child(2) {
+    top: 50%;
+    right: 10%;
+}
+#cat-background img:nth-child(3) {
+    bottom: 15%;
+    left: 40%;
+}
+
+/* Existing CSS remains unchanged */
 
 .container {
     background: white;
@@ -75,7 +106,6 @@ button {
     color: red; 
 }
 
-
 /* Falling emotes */
 .heart {
     position: fixed;
@@ -84,7 +114,7 @@ button {
     animation: fall linear infinite;
 }
 
-/*Falling Animation */
+/* Falling Animation */
 @keyframes fall {
     to {
         transform: translateY(100vh);
@@ -112,7 +142,8 @@ button {
     align-items: center;
     font-size: 36px;
     color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* CHANGE: Apply the cursive font to the intro area */
+    font-family: 'Dancing Script', cursive;
     text-align: center;
     z-index: 100;
 }
@@ -122,10 +153,7 @@ button {
     transition: opacity 1s ease-out;
 }
 
-
 .hidden {
     opacity: 0;
     transition: opacity 1s ease-out;
 }
-
-
