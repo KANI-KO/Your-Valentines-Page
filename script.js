@@ -1,3 +1,7 @@
+// CHANGE: Define global constants for initial styles
+const initialFontSize = 20;          // Initial font size (in px) for both buttons
+const initialPadding = "10px 20px";    // Initial padding for both buttons
+
 let introScreen = document.getElementById("intro-screen");
 let introText = document.getElementById("intro-text");
 
@@ -21,17 +25,17 @@ function typeNextChar() {
 }
 
 function deleteLine() {
-    if (charIndex > 0 && lineIndex < introLines.length - 1) { 
+    if (charIndex > 0 && lineIndex < introLines.length - 1) {
         // Only delete if NOT the last sentence
         introText.innerHTML = introLines[lineIndex].substring(0, charIndex - 1);
         charIndex--;
         setTimeout(deleteLine, 30);
-    } else if (lineIndex < introLines.length - 1) { 
+    } else if (lineIndex < introLines.length - 1) {
         // Move to the next sentence if NOT the last one
         lineIndex++;
         setTimeout(typeNextChar, 500);
     } else {
-        // After the last sentence stays for a while, fade out the text first
+        // After the last sentence, fade out the text
         setTimeout(() => {
             introText.classList.add("fade-out-text"); 
             setTimeout(() => {
@@ -42,7 +46,7 @@ function deleteLine() {
     }
 }
 
-// Start animation
+// Start the intro animation
 setTimeout(typeNextChar, 2000);
 
 let noButton = document.getElementById("no-btn");
@@ -62,7 +66,8 @@ document.body.appendChild(resetButton);
 // Background Music
 let bgMusic = new Audio("music.mp3"); 
 
-let yesSize = 20; // Initial font size for Yes button
+// CHANGE: Use initialFontSize for yes button's dynamic sizing.
+let yesSize = initialFontSize;       
 let growthFactor = 1.8; // Exponential growth for Yes button
 let noClicks = 0;
 
@@ -111,36 +116,37 @@ function handleYesClick() {
 // CHANGE: Update yesButton event listener to use handleYesClick
 yesButton.addEventListener("click", handleYesClick);
 
-// CHANGE: Modified No Button Click event listener
+// CHANGE: Modified No Button Click event listener to include alternative button on 4th click.
 noButton.addEventListener("click", () => {
-    // NEW FEATURE: On the 4th click (when noClicks is 3), replace the no button with an alternative yes button.
-    if (noClicks === 3) {  // 4th click (0-indexed: 0,1,2 then 3)
+    if (noClicks === 3) {  // On the 4th click (0-indexed: 0,1,2 then 3)
         questionText.innerText = "Seems like you're a bit hesitant... How about clicking 'Yes, please!' instead?";
-        noButton.style.display = "none"; // Hide the original no button
+        noButton.style.display = "none"; // Hide the original No button
 
-        // Create alternative yes button
+        // Create alternative Yes button
         let alternativeYesButton = document.createElement("button");
         alternativeYesButton.id = "alternative-yes-btn";
         alternativeYesButton.innerText = "Yes, please!";
-        alternativeYesButton.style.fontSize = "20px";
-        alternativeYesButton.style.padding = "10px 20px";
-        // Append the alternative yes button to the container
+        // CHANGE: Use the same initial styles for the alternative button
+        alternativeYesButton.style.fontSize = initialFontSize + "px";
+        alternativeYesButton.style.padding = initialPadding;
+        // Append the alternative Yes button to the container
         document.querySelector(".buttons").appendChild(alternativeYesButton);
 
-        // Link the alternative yes button to the same landing page action as the original yes button
+        // Link the alternative Yes button to the same landing page action as the original Yes button
         alternativeYesButton.addEventListener("click", handleYesClick);
     } else {
         if (noClicks < messages.length) {
-            questionText.innerText = messages[noClicks]; // Change text
+            questionText.innerText = messages[noClicks];
         } else {
-            questionText.innerText = messages[messages.length - 1]; // Final message
+            questionText.innerText = messages[messages.length - 1];
         }
 
         // Increase Yes button size exponentially
         yesSize *= growthFactor;
         yesButton.style.fontSize = yesSize + "px";
+        // For consistency, update padding relative to initial ratio:
         yesButton.style.padding = (yesSize / 3) + "px";
-
+        
         noClicks++;
     }
 });
@@ -149,13 +155,18 @@ resetButton.addEventListener("click", () => {
     questionText.innerText = "Will you be my Valentine?";
     questionText.classList.remove("big-text");
 
-    yesSize = 20; 
-    yesButton.style.fontSize = yesSize + "px";
-    yesButton.style.padding = "10px";
+    // CHANGE: Reset yesSize and button styles using our constants.
+    yesSize = initialFontSize;
+    yesButton.style.fontSize = initialFontSize + "px";
+    yesButton.style.padding = initialPadding;
+    // Also reset noButton style to the same values.
+    noButton.style.fontSize = initialFontSize + "px";
+    noButton.style.padding = initialPadding;
+    
     noClicks = 0; 
 
     responseText.innerHTML = "";
-    responseText.classList.remove("big-text");
+    responseText.classList.remove("medium-text");
 
     yesButton.style.display = "inline-block";
     noButton.style.display = "inline-block";
@@ -170,9 +181,9 @@ resetButton.addEventListener("click", () => {
     bgMusic.pause();
     bgMusic.currentTime = 0;
 
-    // Stop the emote animation
-    clearInterval(heartsInterval); // Stop interval
-    document.querySelectorAll(".heart").forEach((heart) => heart.remove()); // Remove all emotes
+    // Stop the falling hearts animation
+    clearInterval(heartsInterval);
+    document.querySelectorAll(".heart").forEach((heart) => heart.remove());
 
     // Restore the first GIF
     gifContainer.innerHTML = `
@@ -200,12 +211,12 @@ function startFallingHearts() {
         heart.classList.add("heart");
 
         heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = Math.random() * 2 + 3 + "s"; // animation speed
+        heart.style.animationDuration = Math.random() * 2 + 3 + "s"; // Animation speed
 
         document.body.appendChild(heart);
 
         setTimeout(() => {
             heart.remove();
         }, 5000);
-    }, 250); // Creates new emote every 250ms
+    }, 250); // Creates a new heart every 250ms
 }
