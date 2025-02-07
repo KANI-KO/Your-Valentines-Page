@@ -1,14 +1,50 @@
+/* Main Body Styles */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    /* Use Pacifico for general text */
+    font-family: 'Sour Gummy', cursive;
     background-color: pink;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    
 }
 
+/* Background container: Only shows mochi cat GIFs */
+#cat-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;  /* Behind main content */
+    pointer-events: none;
+}
+#cat-background .cat-gif {
+    position: absolute;
+    width: 150px;
+    opacity: 0.5;  /* Slight transparency */
+}
+/* Position each mochi cat image */
+#cat-background img:nth-child(1) {
+    top: 10%;
+    left: 5%;
+}
+#cat-background img:nth-child(2) {
+    bottom: 15%;
+    right: 10%;
+}
+#cat-background img:nth-child(3) {
+    top: 25%;
+    right: 30%;
+}
+#cat-background img:nth-child(4) {
+    bottom: 25%;
+    left: 15%;
+}
+
+
+/* Container for main content */
 .container {
     background: white;
     padding: 30px;
@@ -19,10 +55,9 @@ body {
 h1 {
     color: red;
 }
-
-#yes-btn,
-#no-btn {
-    min-width: 80px; /* Or a fixed width: width: 150px; */
+/* Use Chewy for the main question text (reconsideration messages) */
+#question {
+    font-family: 'Sour Gummy', cursive;
 }
 
 .buttons {
@@ -60,7 +95,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    display: none; /* Hidden at start */
+    display: none;
 }
 
 #reset-btn:hover {
@@ -69,7 +104,7 @@ button {
 
 /* big text */
 .big-text {
-    font-size: 45px;  
+    font-size: 45px;
     font-weight: bold;
     color: red;
 }
@@ -77,11 +112,10 @@ button {
 /* mid text */
 .medium-text {
     font-size: 40px;
-    color: red; 
+    color: red;
 }
 
-
-/* Falling emotes */
+/* Falling hearts */
 .heart {
     position: fixed;
     top: 0;
@@ -89,7 +123,6 @@ button {
     animation: fall linear infinite;
 }
 
-/*Falling Animation */
 @keyframes fall {
     to {
         transform: translateY(100vh);
@@ -97,36 +130,53 @@ button {
     }
 }
 
-/* Pop Animation for Final Messages */
 @keyframes pop {
     0% { transform: scale(0.8); opacity: 0; }
     50% { transform: scale(1.1); opacity: 1; }
     100% { transform: scale(1); }
 }
 
-/* Intro messages */
+/* Intro Screen styling */
 #intro-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: white;
+    /* Soft romantic gradient background */
+    background: linear-gradient(45deg, #ffe6f9, #e0b3ff);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 36px;
-    color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* Use Sour Gummy for intro text */
+    font-family: 'Sour Gummy', cursive;
     text-align: center;
     z-index: 100;
 }
 
+/* Apply a pink-to-purple gradient to intro text */
+#intro-screen p,
+#intro-screen span {
+    background: linear-gradient(45deg, #ff77ff, #cc33cc);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 10px;
+}
+
+/* Bongo cat style in intro */
+.bongo-cat {
+    margin-top: 20px;
+    width: 300px;
+    height: auto;
+}
+
+/* Fade out and hidden classes for typewriter effect */
 .fade-out-text {
     opacity: 0;
     transition: opacity 1s ease-out;
 }
-
 
 .hidden {
     opacity: 0;
