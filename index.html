@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Be My Valentine?</title>
+  <!-- CHANGE: Added Google Font for a more cursive, cute style -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Prevent page scrolling */
@@ -17,18 +19,24 @@
     #gif-container {
       width: 250px; 
       margin: 20px auto; /* Center it */
-      text-align: center; /*centered */
+      text-align: center; /* Centered */
     }
   </style>
 </head>
 <body>
+  <!-- CHANGE: Added a background container for cat GIFs -->
+  <div id="cat-background">
+      <img class="cat-gif" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute Cat">
+      <img class="cat-gif" src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif" alt="Adorable Cat">
+      <img class="cat-gif" src="https://media.giphy.com/media/ND6xkVPaj8tHO/giphy.gif" alt="Cute Kitten">
+  </div>
+  
   <div class="container">
     <h1 id="question">Will you be my Valentine?</h1>
     <!-- Intro -->
     <div id="intro-screen">
         <p id="intro-text"></p>
         <span id="intro-main"></span>
-    </p>
     </div>
     <!-- GIF container -->
     <div id="gif-container">
