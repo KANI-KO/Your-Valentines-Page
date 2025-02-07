@@ -1,3 +1,16 @@
+document.addEventListener("DOMContentLoaded", function () {
+    let yesButton = document.getElementById("yes-btn");
+    let noButton = document.getElementById("no-btn");
+
+    // BUTTOMS WILL HVE THE SAME SIZE NOWWWW
+    yesButton.style.width = "80px";
+    noButton.style.width = "80px";
+    yesButton.style.height = "60px";
+    noButton.style.height = "60px";
+    yesButton.style.fontSize = "25px";
+    noButton.style.fontSize = "25px";
+});
+
 let introScreen = document.getElementById("intro-screen");
 let introText = document.getElementById("intro-text");
 
@@ -14,7 +27,7 @@ function typeNextChar() {
     if (charIndex < introLines[lineIndex].length) {
         introText.innerHTML += introLines[lineIndex].charAt(charIndex);
         charIndex++;
-        setTimeout(typeNextChar, 60); // Typing speed
+        setTimeout(typeNextChar, 10); // Typing speed
     } else {
         setTimeout(deleteLine, 1500); // Pause before deleting
     }
@@ -77,7 +90,7 @@ const messages = [
     "I will be VERY sad if you say no..."
 ];
 
-// No Button Click - Yes gets bigger & text changes
+// No Button Click - Yes button gets bigger & text changes
 noButton.addEventListener("click", () => {
     if (noClicks < messages.length) {
         questionText.innerText = messages[noClicks]; // Change text
@@ -85,13 +98,18 @@ noButton.addEventListener("click", () => {
         questionText.innerText = messages[messages.length - 1]; // Final message
     }
 
-    // Increase Yes button size exponentially
-    yesSize *= growthFactor;
-    yesButton.style.fontSize = yesSize + "px";
-    yesButton.style.padding = (yesSize / 3) + "px";
+    let newSize = yesButton.clientWidth * growthFactor;
+    let newHeight = yesButton.clientHeight * growthFactor;
+    let newFontSize = parseFloat(window.getComputedStyle(yesButton).fontSize) * growthFactor; 
+
+    yesButton.style.width = newSize + "px";
+    yesButton.style.height = newHeight + "px";
+    yesButton.style.fontSize = newFontSize + "px"; // NOW THE TEXT GROWS!
 
     noClicks++;
 });
+
+
 
 // Yes Button Click - we replace the GIF
 yesButton.addEventListener("click", () => {
@@ -122,14 +140,27 @@ document.body.appendChild(tenorScript); // Append script to the body to reload t
     startFallingHearts(); 
 });
 
-// rest buttom
+// May the power of PEPE Restore Everything!!
 resetButton.addEventListener("click", () => {
     questionText.innerText = "Will you be my Valentine?";
     questionText.classList.remove("big-text");
 
+    // Reset "Yes" and "No" button sizes
     yesSize = 20; 
-    yesButton.style.fontSize = yesSize + "px";
+    let defaultWidth = "100px"; 
+    let defaultHeight = "60px"; 
+    let defaultFontSize = "25px"; 
+
+    yesButton.style.width = defaultWidth;
+    noButton.style.width = defaultWidth;
+    yesButton.style.height = defaultHeight;
+    noButton.style.height = defaultHeight;
+    yesButton.style.fontSize = defaultFontSize;
+    noButton.style.fontSize = defaultFontSize;
     yesButton.style.padding = "10px";
+    noButton.style.padding = "10px";
+
+    // Reset click count
     noClicks = 0; 
 
     responseText.innerHTML = "";
@@ -142,11 +173,11 @@ resetButton.addEventListener("click", () => {
     bgMusic.pause();
     bgMusic.currentTime = 0;
 
-    // Stop the emote animation
+    // Stop the falling hearts animation
     clearInterval(heartsInterval); // Stop interval
-    document.querySelectorAll(".heart").forEach((heart) => heart.remove()); // Remove all emotes
+    document.querySelectorAll(".heart").forEach((heart) => heart.remove()); // Remove all hearts
 
-    // Restore the first GIF
+    // Restore the first GIF inside gif-container
     gifContainer.innerHTML = `
         <div class="tenor-gif-embed" data-postid="18045411243514992895"
              data-share-method="host" data-aspect-ratio="1" data-width="110">
@@ -159,6 +190,7 @@ resetButton.addEventListener("click", () => {
     tenorScriptReset.src = "https://tenor.com/embed.js";
     document.body.appendChild(tenorScriptReset);
 });
+
 
 
 function startFallingHearts() {
