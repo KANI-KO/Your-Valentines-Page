@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- Variables for Yes Button dynamic resizing ---
     let yesSize = initialFontSize;
-    let growthFactor = 1.8;
+    let growthFactor = 1.5;
     let noClicks = 0;
 
     const messages = [
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- No Button Click Functionality ---
     noButton.addEventListener("click", () => {
-        if (noClicks === 4) {  // On the 6th click
+        if (noClicks === 5) {  // On the 6th click
             questionText.innerText = "Seems like you're a bit hesitant... How about clicking 'Yes, please!' instead?";
             noButton.style.display = "none"; // Hide original No button
     
