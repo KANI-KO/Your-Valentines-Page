@@ -30,19 +30,17 @@ function deleteLine() {
         // Move to the next sentence if NOT the last one
         lineIndex++;
         setTimeout(typeNextChar, 500);
-    }else {
-            // After the last sentence stays for a while, fade out the text first
+    } else {
+        // After the last sentence stays for a while, fade out the text first
+        setTimeout(() => {
+            introText.classList.add("fade-out-text"); 
             setTimeout(() => {
-                introText.classList.add("fade-out-text"); 
-        
-                setTimeout(() => {
-                    introScreen.classList.add("hidden"); 
-                    setTimeout(() => { introScreen.style.display = "none"; }, 1000);
-                }, 1000);
-        
-            }, 2000);
-        }
+                introScreen.classList.add("hidden"); 
+                setTimeout(() => { introScreen.style.display = "none"; }, 1000);
+            }, 1000);
+        }, 2000);
     }
+}
 
 // Start animation
 setTimeout(typeNextChar, 2000);
@@ -77,52 +75,76 @@ const messages = [
     "I will be VERY sad if you say no..."
 ];
 
-// No Button Click - Yes gets bigger & text changes
-noButton.addEventListener("click", () => {
-    if (noClicks < messages.length) {
-        questionText.innerText = messages[noClicks]; // Change text
-    } else {
-        questionText.innerText = messages[messages.length - 1]; // Final message
-    }
-
-    // Increase Yes button size exponentially
-    yesSize *= growthFactor;
-    yesButton.style.fontSize = yesSize + "px";
-    yesButton.style.padding = (yesSize / 3) + "px";
-
-    noClicks++;
-});
-
-// Yes Button Click - we replace the GIF
-yesButton.addEventListener("click", () => {
+// CHANGE: NEW FUNCTION to encapsulate the yes-button click action.
+function handleYesClick() {
     questionText.innerText = "Happy Valentine's!";
     questionText.classList.add("big-text");
 
     responseText.innerHTML = "Yay! I love you!";
     responseText.classList.add("medium-text");
 
+    // Hide all yes/no buttons if present
     yesButton.style.display = "none";
     noButton.style.display = "none";
+    let altYesButton = document.getElementById("alternative-yes-btn");
+    if (altYesButton) {
+        altYesButton.style.display = "none";
+    }
     resetButton.style.display = "block";
 
     gifContainer.innerHTML = `
     <div class="tenor-gif-embed" data-postid="1975786729994891673"
          data-share-method="host" data-aspect-ratio="1.04762" data-width="100%">
     </div>
-`;
+    `;
 
-let tenorScript = document.createElement("script");
-tenorScript.type = "text/javascript";
-tenorScript.async = true;
-tenorScript.src = "https://tenor.com/embed.js";
-document.body.appendChild(tenorScript); // Append script to the body to reload the Tenor embed
-
+    let tenorScript = document.createElement("script");
+    tenorScript.type = "text/javascript";
+    tenorScript.async = true;
+    tenorScript.src = "https://tenor.com/embed.js";
+    document.body.appendChild(tenorScript);
 
     bgMusic.play(); 
     startFallingHearts(); 
+}
+
+// CHANGE: Update yesButton event listener to use handleYesClick
+yesButton.addEventListener("click", handleYesClick);
+
+// CHANGE: Modified No Button Click event listener
+noButton.addEventListener("click", () => {
+    // NEW FEATURE: On the 4th click (when noClicks is 3), replace the no button with an alternative yes button.
+    if (noClicks === 3) {  // 4th click (0-indexed: 0,1,2 then 3)
+        questionText.innerText = "Seems like you're a bit hesitant... How about clicking 'Yes, please!' instead?";
+        noButton.style.display = "none"; // Hide the original no button
+
+        // Create alternative yes button
+        let alternativeYesButton = document.createElement("button");
+        alternativeYesButton.id = "alternative-yes-btn";
+        alternativeYesButton.innerText = "Yes, please!";
+        alternativeYesButton.style.fontSize = "20px";
+        alternativeYesButton.style.padding = "10px 20px";
+        // Append the alternative yes button to the container
+        document.querySelector(".buttons").appendChild(alternativeYesButton);
+
+        // Link the alternative yes button to the same landing page action as the original yes button
+        alternativeYesButton.addEventListener("click", handleYesClick);
+    } else {
+        if (noClicks < messages.length) {
+            questionText.innerText = messages[noClicks]; // Change text
+        } else {
+            questionText.innerText = messages[messages.length - 1]; // Final message
+        }
+
+        // Increase Yes button size exponentially
+        yesSize *= growthFactor;
+        yesButton.style.fontSize = yesSize + "px";
+        yesButton.style.padding = (yesSize / 3) + "px";
+
+        noClicks++;
+    }
 });
 
-// rest buttom
 resetButton.addEventListener("click", () => {
     questionText.innerText = "Will you be my Valentine?";
     questionText.classList.remove("big-text");
@@ -138,6 +160,12 @@ resetButton.addEventListener("click", () => {
     yesButton.style.display = "inline-block";
     noButton.style.display = "inline-block";
     resetButton.style.display = "none";
+
+    // CHANGE: Remove alternative yes button if it exists during reset.
+    let altYesButton = document.getElementById("alternative-yes-btn");
+    if (altYesButton) {
+        altYesButton.remove();
+    }
 
     bgMusic.pause();
     bgMusic.currentTime = 0;
@@ -160,7 +188,6 @@ resetButton.addEventListener("click", () => {
     document.body.appendChild(tenorScriptReset);
 });
 
-
 function startFallingHearts() {
     // Stop any existing interval before starting a new one
     if (heartsInterval) {
@@ -182,5 +209,3 @@ function startFallingHearts() {
         }, 5000);
     }, 250); // Creates new emote every 250ms
 }
-
-
