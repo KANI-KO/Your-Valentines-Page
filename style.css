@@ -1,22 +1,23 @@
+/* Main Body Styles */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* CHANGE: Updated font-family to include the new cursive font */
-    font-family: 'Dancing Script', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* CHANGE: Use Pacifico for general text */
+    font-family: 'Pacifico', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: pink;
     text-align: center;
 }
 
-/* CHANGE: New styles for the cat-background container and embedded cat GIFs */
+/* CHANGE: Background container for cat GIFs */
 #cat-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;  /* Place behind the main content */
+    z-index: -1;  /* Behind main content */
     pointer-events: none;
 }
 #cat-background .cat-gif {
@@ -24,7 +25,7 @@ body {
     width: 150px;
     opacity: 0.6;
 }
-/* Positioning each GIF at different spots */
+/* Position each cat GIF at different spots */
 #cat-background img:nth-child(1) {
     top: 10%;
     left: 5%;
@@ -37,9 +38,14 @@ body {
     bottom: 15%;
     left: 40%;
 }
+/* NEW: Position for the Pusheen cat GIF */
+#cat-background img:nth-child(4) {
+    top: 70%;
+    right: 20%;
+    width: 120px;
+}
 
-/* Existing CSS remains unchanged */
-
+/* Container for main content */
 .container {
     background: white;
     padding: 30px;
@@ -51,6 +57,7 @@ h1 {
     color: red;
 }
 
+/* Buttons styling remains similar */
 .buttons {
     margin-top: 20px;
 }
@@ -86,7 +93,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    display: none; /* Hidden at start */
+    display: none;
 }
 
 #reset-btn:hover {
@@ -129,7 +136,7 @@ button {
     100% { transform: scale(1); }
 }
 
-/* Intro messages */
+/* CHANGE: Intro Screen styling – use Sour Gummy with a gradient effect */
 #intro-screen {
     position: fixed;
     top: 0;
@@ -138,14 +145,23 @@ button {
     height: 100%;
     background: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 36px;
-    color: black;
-    /* CHANGE: Apply the cursive font to the intro area */
-    font-family: 'Dancing Script', cursive;
+    /* Use Sour Gummy for a more modern, romantic look */
+    font-family: 'Sour Gummy', cursive;
     text-align: center;
     z-index: 100;
+}
+
+/* Apply a pink-to-purple gradient to the intro text */
+#intro-screen p, 
+#intro-screen span {
+    background: linear-gradient(45deg, #ff77ff, #cc33cc);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 10px;
 }
 
 .fade-out-text {
