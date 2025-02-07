@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Be My Valentine?</title>
+  <!-- Load Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Sour+Gummy&family=Chewy&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Prevent page scrolling */
@@ -12,25 +14,32 @@
       margin: 0;
       padding: 0;
     }
-
-    /* Fix the size of the GIF container */
+    /* Fix the size of the Tenor GIF container */
     #gif-container {
       width: 250px; 
-      margin: 20px auto; /* Center it */
-      text-align: center; /*centered */
+      margin: 20px auto;
+      text-align: center;
     }
   </style>
 </head>
 <body>
+  <!-- Background container with two copies of the mochi cat GIF -->
+  <div id="cat-background">
+      <img class="cat-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb242cmdxbTAwdDR4cHhhcGFlNHpvZ3ZnOGtyY2dtYjcybW9vbGM5bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qFmdpUKAFZ6rMobzzu/giphy.gif" alt="Mochi Cat">
+      <img class="cat-gif" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTFwanZ3ZW1nNWM0cWxzOWJ4NnF4N2s2cjBxYjJsZ291ZWZ3aHBoMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1JmGiBtqTuehfYxuy9/giphy.gif" alt="Mochi Cat">
+      <img class="cat-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXBrbXViM3M5eGMxM2xmZGdueHppb3ZiYzE0bXIzem1oenJncjAwOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KmxmoHUGPDjfQXqGgv/giphy.gif" alt="Mochi Cat">
+      <img class="cat-gif" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG5mdWhsdXZ2MWxmY3FndWF5OG56ZHhrZTBuaXdpNmI0MGVjbmppeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0OgdJVNjbcIifqSb7U/giphy.gif" alt="Mochi Cat">
+  </div>
+  
   <div class="container">
     <h1 id="question">Will you be my Valentine?</h1>
-    <!-- Intro -->
     <div id="intro-screen">
         <p id="intro-text"></p>
         <span id="intro-main"></span>
-    </p>
+        <!-- Bongo cat GIF below the intro text -->
+        <img class="bongo-cat" src="https://64.media.tumblr.com/dd35d8033e45129721b41590438d254b/edbf4cb04b19bfa8-54/s400x600/b0be76f1c9b8a37a9926482ef0b6a0f716fdb24c.gifv" alt="Bongo Cat Clapping">
     </div>
-    <!-- GIF container -->
+    <!-- GIF container (Tenor embed) -->
     <div id="gif-container">
       <div class="tenor-gif-embed" id="gif" data-postid="18045411243514992895"
            data-share-method="host" data-aspect-ratio="1" data-width="110">
