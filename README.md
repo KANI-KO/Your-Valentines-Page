@@ -1,4 +1,4 @@
-# The Special Page for the Special You
+#Special Page for the Special You
 
 [Click here to enter](https://kani-ko.github.io/Your-Valentines-Page/)
 
