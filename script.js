@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- Variables for Yes Button dynamic resizing ---
     let yesSize = initialFontSize;
-    let growthFactor = 1.8;
+    let growthFactor = 1.6;
     let noClicks = 0;
 
     const messages = [
@@ -154,15 +154,31 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 questionText.innerText = messages[messages.length - 1];
             }
-            // Use computed style to get accurate current width, height, and font size:
+            // Use computed style for accurate sizing:
             let computedStyle = window.getComputedStyle(yesButton);
             let currentWidth = parseFloat(computedStyle.width);
             let currentHeight = parseFloat(computedStyle.height);
             let currentFontSize = parseFloat(computedStyle.fontSize);
     
+            // Calculate new sizes using the growth factor
             let newWidth = currentWidth * growthFactor;
             let newHeight = currentHeight * growthFactor;
             let newFontSize = currentFontSize * growthFactor;
+    
+            // Set maximum allowed dimensions and font size
+            const maxWidth = 1000;
+            const maxHeight = 800;
+            const maxFontSize = 100;  // Change this value as desired
+    
+            if (newWidth > maxWidth) {
+                newWidth = maxWidth;
+            }
+            if (newHeight > maxHeight) {
+                newHeight = maxHeight;
+            }
+            if (newFontSize > maxFontSize) {
+                newFontSize = maxFontSize;
+            }
     
             yesButton.style.width = newWidth + "px";
             yesButton.style.height = newHeight + "px";
@@ -170,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             noClicks++;
         }
-        });
+    });
 
     // --- Reset Button Functionality ---
     resetButton.addEventListener("click", () => {
