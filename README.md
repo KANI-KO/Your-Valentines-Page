@@ -6,6 +6,4 @@
 [Preview GIF](https://raw.githubusercontent.com/KANI-KO/Your-Valentines-Page/main/preview.gif
 )
 
-Feel free to clone this repo.
-
 ≧( ° ° )≦ ≧( ° ° )≦ ≧( ° ° )≦
