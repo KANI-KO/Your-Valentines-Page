@@ -1,4 +1,5 @@
 # [My Dearest Love,](https://kani-ko.github.io/Your-Valentines-Page/)
+-----------------------
 
 #### ***How dost thou shine, my sweetest star,***
 
@@ -28,7 +29,7 @@
 
 *Art but a whisper when thou art nigh.*
 
-
+<br>
 
 *Dost thou not feel the tempest wild*
 
@@ -38,7 +39,7 @@
 
 *For thee each pulse its echo makes.*
 
-
+<br>
 
 *O grant me leave, my heart’s delight,*
 
@@ -52,72 +53,73 @@ If love be folly, call me mad,*
 
 *A love that lives and dies in you.*
 
+<br>
 
+*O jewel of the morning light,*
 
-*O jewel of the morning light,
+*Thy beauty dost outshine the night.*
 
-*Thy beauty dost outshine the night.
+*No rose, though bathed in summer’s gold,*
 
-*No rose, though bathed in summer’s gold,
+*Could match thy grace a thousandfold.*
 
-*Could match thy grace a thousandfold.
+*Thine eyes, twin stars in midnight’s keep,*
 
-*Thine eyes, twin stars in midnight’s keep,
+*Do pierce the soul and bid it weep.*
 
-*Do pierce the soul and bid it weep.
+*Yet, weep I shall not, lest in vain,*
 
-*Yet, weep I shall not, lest in vain,
+*I waste the joy that drowns my pain.*
 
-*I waste the joy that drowns my pain.
+<br>
 
+*What fickle time, what cruel fate,*
 
+*That I was not born soon or late,*
 
-*What fickle time, what cruel fate,
+*To meet thee first and love thee last,*
 
-*That I was not born soon or late,
+*And bind thee ‘fore the moment passed!*
 
-*To meet thee first and love thee last,
+<br>
 
-*And bind thee ‘fore the moment passed!
+*Thy voice!—a melody most rare,*
 
+*That charms the winds and soothes the air.*
 
+*The sirens’ song be hushed and mute,*
 
-*Thy voice!—a melody most rare,
+*For none but thee could strike the lute*
 
-*That charms the winds and soothes the air.
+*Of passion’s fire and mercy sweet—*
 
-*The sirens’ song be hushed and mute,
+*A harmony none may repeat.*
 
-*For none but thee could strike the lute
+<br>
 
-*Of passion’s fire and mercy sweet—
+*Dost thou not hear my heart’s loud wail?*
 
-*A harmony none may repeat.
+*It beats for thee, it shall not fail.*
 
+*If love be folly, brand me mad!*
 
+*For never love hath made me glad,*
 
-*Dost thou not hear my heart’s loud wail?
+*As thine—so wild, so fierce, so true—*
 
-*It beats for thee, it shall not fail.
+*A tempest bold, yet ever new.*
 
-*If love be folly, brand me mad!
+<br>
 
-*For never love hath made me glad,
+*By heaven’s light and earth’s embrace,*
 
-*As thine—so wild, so fierce, so true—
+*There lives no love in any place,*
 
-*A tempest bold, yet ever new.
+*More bound, more sworn, more high, more deep,*
 
+*Than mine for thee—eternal keep.*
 
-
-*By heaven’s light and earth’s embrace,
-
-*There lives no love in any place,
-
-*More bound, more sworn, more high, more deep,
-
-*Than mine for thee—eternal keep.
-
+<br>
 
 ### Ever thine, in soul and breath, <br>
 ### Thy Most Devoted Servant
