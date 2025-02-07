@@ -154,19 +154,23 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 questionText.innerText = messages[messages.length - 1];
             }
-            // Increase Yes button size exponentially by updating width, height, and font size:
-            let newWidth = yesButton.clientWidth * growthFactor;
-            let newHeight = yesButton.clientHeight * growthFactor;
-            let newFontSize = parseFloat(window.getComputedStyle(yesButton).fontSize) * growthFactor;
+            // Use computed style to get accurate current width, height, and font size:
+            let computedStyle = window.getComputedStyle(yesButton);
+            let currentWidth = parseFloat(computedStyle.width);
+            let currentHeight = parseFloat(computedStyle.height);
+            let currentFontSize = parseFloat(computedStyle.fontSize);
+    
+            let newWidth = currentWidth * growthFactor;
+            let newHeight = currentHeight * growthFactor;
+            let newFontSize = currentFontSize * growthFactor;
+    
             yesButton.style.width = newWidth + "px";
             yesButton.style.height = newHeight + "px";
             yesButton.style.fontSize = newFontSize + "px";
-            // Optionally update padding if desired:
-            // yesButton.style.padding = (newFontSize / 3) + "px";
             
             noClicks++;
         }
-    });
+        });
 
     // --- Reset Button Functionality ---
     resetButton.addEventListener("click", () => {
