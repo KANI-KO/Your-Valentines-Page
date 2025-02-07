@@ -20,6 +20,11 @@ h1 {
     color: red;
 }
 
+#yes-btn,
+#no-btn {
+    min-width: 80px; /* Or a fixed width: width: 150px; */
+}
+
 .buttons {
     margin-top: 20px;
 }
@@ -127,5 +132,3 @@ button {
     opacity: 0;
     transition: opacity 1s ease-out;
 }
-
-
