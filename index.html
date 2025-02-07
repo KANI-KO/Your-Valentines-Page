@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Be My Valentine?</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Prevent page scrolling */
+    html, body {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Fix the size of the GIF container */
+    #gif-container {
+      width: 250px; 
+      margin: 20px auto; /* Center it */
+      text-align: center; /*centered */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="question">Will you be my Valentine?</h1>
+    <!-- Intro -->
+    <div id="intro-screen">
+        <p id="intro-text"></p>
+        <span id="intro-main"></span>
+    </p>
+    </div>
+    <!-- GIF container -->
+    <div id="gif-container">
+      <div class="tenor-gif-embed" id="gif" data-postid="18045411243514992895"
+           data-share-method="host" data-aspect-ratio="1" data-width="110">
+      </div>
+      <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+
+    <div class="buttons">
+      <button id="yes-btn" style="font-size: 16px; padding: 10px;">Yes</button>
+      <button id="no-btn">No</button>
+    </div>
+    <p id="response"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
