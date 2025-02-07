@@ -27,7 +27,7 @@ function typeNextChar() {
     if (charIndex < introLines[lineIndex].length) {
         introText.innerHTML += introLines[lineIndex].charAt(charIndex);
         charIndex++;
-        setTimeout(typeNextChar, 10); // Typing speed
+        setTimeout(typeNextChar, 60); // Typing speed
     } else {
         setTimeout(deleteLine, 1500); // Pause before deleting
     }
