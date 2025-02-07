@@ -1,5 +1,6 @@
 # [My Dearest Love,](https://kani-ko.github.io/Your-Valentines-Page/)
 -----------------------
+![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzBxbTc1bWdiZmNyYnphb2R6b2dyNnJwb2lwM3VtMHg2MWIyaTd1bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KztT2c4u8mYYUiMKdJ/giphy.gif)
 
 #### ***How dost thou shine, my sweetest star,***
 
@@ -11,6 +12,8 @@
 
 <br>
 
+![](https://media.giphy.com/media/yc2pHdAoxVOrJ2m5Ha/giphy.gif?cid=ecf05e478elahwqi43llqh889k67529r0j00fw956rv97xfz&ep=v1_gifs_related&rid=giphy.gif&ct=g)
+
 *O beauty rare, beyond compare,*
 
 *Thy presence maketh angels stare.*
@@ -20,6 +23,8 @@
 *A vision pure, love’s perfect guide.*
 
 <br>
+
+![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmtnY2NiZW41eWRscHQ5ODh4M3lzOGN3ZnI0ZTkxcWtsdjhqYzI2eiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/c76IJLufpNwSULPk77/giphy.gif)
 
 *The lilies pale, the roses blench,*
 
@@ -31,6 +36,8 @@
 
 <br>
 
+![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmtnY2NiZW41eWRscHQ5ODh4M3lzOGN3ZnI0ZTkxcWtsdjhqYzI2eiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l4pTdcifPZLpDjL1e/giphy.gif)
+
 *Dost thou not feel the tempest wild*
 
 *That in my heart beats strong and mild?*
@@ -40,6 +47,8 @@
 *For thee each pulse its echo makes.*
 
 <br>
+
+![](https://media.giphy.com/media/9d3LQ6TdV2Flo8ODTU/giphy.gif?cid=790b7611rkgccben5ydlpt988x3ys8cwfr4e91qklv8jc26z&ep=v1_gifs_search&rid=giphy.gif&ct=g)
 
 *O grant me leave, my heart’s delight,*
 
@@ -55,7 +64,9 @@ If love be folly, call me mad,*
 
 <br>
 
-*O jewel of the morning light,*
+![](https://media.giphy.com/media/tpVKvAabWt3G5csMkT/giphy.gif?cid=790b7611rkgccben5ydlpt988x3ys8cwfr4e91qklv8jc26z&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
+### *O jewel of the morning light,*
 
 *Thy beauty dost outshine the night.*
 
@@ -73,6 +84,8 @@ If love be folly, call me mad,*
 
 <br>
 
+![](https://media.giphy.com/media/x28cIQSn19Tbi/giphy.gif?cid=ecf05e470omvwk05yxbeb1ripfci7flzzq3adtmkg0pufd46&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
 *What fickle time, what cruel fate,*
 
 *That I was not born soon or late,*
@@ -82,6 +95,8 @@ If love be folly, call me mad,*
 *And bind thee ‘fore the moment passed!*
 
 <br>
+
+![](https://media.giphy.com/media/7vDoUoDZHoUQxMPkd7/giphy.gif?cid=ecf05e470omvwk05yxbeb1ripfci7flzzq3adtmkg0pufd46&ep=v1_gifs_search&rid=giphy.gif&ct=g)
 
 *Thy voice!—a melody most rare,*
 
@@ -97,6 +112,8 @@ If love be folly, call me mad,*
 
 <br>
 
+![](https://media.giphy.com/media/BMVS53dkX8pYaR9IMD/giphy.gif?cid=ecf05e47qc2anfqiqp8q7wbv8b5r9btzpncg16c8ao5hoskr&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
 *Dost thou not hear my heart’s loud wail?*
 
 *It beats for thee, it shall not fail.*
@@ -111,6 +128,8 @@ If love be folly, call me mad,*
 
 <br>
 
+![](https://media.giphy.com/media/5vYwHanb6y3HWBQIox/giphy.gif?cid=ecf05e47gd1flgz5yq51gs0suko11227rurc8dvlr6e6tdpf&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
 *By heaven’s light and earth’s embrace,*
 
 *There lives no love in any place,*
@@ -121,12 +140,9 @@ If love be folly, call me mad,*
 
 <br>
 
+![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW5xazkxeG43cnYwamVpcWRzOGpldGtqaDBlemw3dmt3MjAzNGpwMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JucApR3kaFe1RlTgl8/giphy.gif)
+
 ### Ever thine, in soul and breath, <br>
 ### Thy Most Devoted Servant
-
-
-## Preview
-[Preview GIF](https://raw.githubusercontent.com/KANI-KO/Your-Valentines-Page/main/preview.gif
-)
 
 ≧( ° ° )≦ ≧( ° ° )≦ ≧( ° ° )≦
