@@ -168,4 +168,9 @@ If love be folly, call me mad,*
 ### Ever thine, in soul and breath, <br>
 ### Thy Most Devoted Servant
 
+Use your own gif from Tenor and replace the existing class="tenor-gif-embed" line in the index.html file. 
+
+Clone this repo to make your own version:
+   `git clone https://github.com/KANI-KO/Your-Valentines-Page.git`
+
 ≧( ° ° )≦ ≧( ° ° )≦ ≧( ° ° )≦
