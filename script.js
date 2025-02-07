@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- No Button Click Functionality ---
     noButton.addEventListener("click", () => {
-        if (noClicks === 3) {  // On the 4th click, show alternative Yes button
+        if (noClicks === 5) {  // On the 6th click, show alternative Yes button
             questionText.innerText = "Seems like you're a bit hesitant... How about clicking 'Yes, please!' instead?";
             noButton.style.display = "none";
 
