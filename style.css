@@ -34,6 +34,15 @@ body {
     bottom: 15%;
     right: 10%;
 }
+#cat-background img:nth-child(3) {
+    top: 25%;
+    right: 30%;
+}
+#cat-background img:nth-child(4) {
+    bottom: 25%;
+    left: 15%;
+}
+
 
 /* Container for main content */
 .container {
