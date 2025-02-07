@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Be My Valentine?</title>
-  <!-- CHANGE: Load two Google Fonts – Sour Gummy for the intro message and Pacifico for the rest -->
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Sour+Gummy&display=swap" rel="stylesheet">
+  <!-- CHANGE: Load Google Fonts – Pacifico for general text, Sour Gummy for intro, and Chewy for the question messages -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Sour+Gummy&family=Chewy&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Prevent page scrolling */
@@ -24,23 +24,26 @@
   </style>
 </head>
 <body>
-  <!-- CHANGE: Added a background container for cat GIFs including a Pusheen cat GIF -->
+  <!-- CHANGE: Background container now includes two copies of the mochi cat GIF -->
   <div id="cat-background">
-      <img class="cat-gif" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute Cat">
-      <img class="cat-gif" src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif" alt="Adorable Cat">
-      <img class="cat-gif" src="https://media.giphy.com/media/ND6xkVPaj8tHO/giphy.gif" alt="Cute Kitten">
-      <!-- NEW: Pusheen cat GIF added -->
-      <img class="cat-gif" src="https://media.giphy.com/media/3oriO0LzAZB4JXdGB2/giphy.gif" alt="Pusheen Cat">
+      <img class="cat-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb242cmdxbTAwdDR4cHhhcGFlNHpvZ3ZnOGtyY2dtYjcybW9vbGM5bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qFmdpUKAFZ6rMobzzu/giphy.gif" alt="Mochi Cat">
+      <img class="cat-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb242cmdxbTAwdDR4cHhhcGFlNHpvZ3ZnOGtyY2dtYjcybW9vbGM5bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qFmdpUKAFZ6rMobzzu/giphy.gif" alt="Mochi Cat">
   </div>
   
   <div class="container">
+    <!-- The main question uses the Chewy font (see CSS rule for #question) -->
     <h1 id="question">Will you be my Valentine?</h1>
-    <!-- Intro -->
+    <!-- Intro Screen with a romantic gradient background -->
     <div id="intro-screen">
         <p id="intro-text">Hey, we've been through a lot together...</p>
-        <span id="intro-main">And now, our first Valentine's Day is almost here.<br>So... I made something special for you.</span>
+        <span id="intro-main">
+          And now, our first Valentine's Day is almost here.<br>
+          So... I made something special for you.
+        </span>
+        <!-- CHANGE: Bongo cat gif added below the intro text -->
+        <img class="bongo-cat" src="https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.gif" alt="Bongo Cat Clapping">
     </div>
-    <!-- GIF container -->
+    <!-- GIF container remains unchanged -->
     <div id="gif-container">
       <div class="tenor-gif-embed" id="gif" data-postid="18045411243514992895"
            data-share-method="host" data-aspect-ratio="1" data-width="110">
@@ -58,3 +61,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
