@@ -166,8 +166,8 @@ document.addEventListener("DOMContentLoaded", function () {
             let newFontSize = currentFontSize * growthFactor;
     
             // Set maximum allowed dimensions and font size
-            const maxWidth = 300;
-            const maxHeight = 150;
+            const maxWidth = 500;
+            const maxHeight = 400;
             const maxFontSize = 40;  // Change this value as desired
     
             if (newWidth > maxWidth) {
