@@ -10,6 +10,20 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(typeNextChar, 2000);
     });
     
+    // Increase number of rain drops for a more evident rain effect
+    function createRainDrops(num) {
+        const weatherContainer = document.querySelector('.weather-effects');
+        for (let i = 0; i < num; i++) {
+            let rainDrop = document.createElement('div');
+            rainDrop.classList.add('rain');
+            rainDrop.style.left = Math.random() * 100 + "vw";
+            rainDrop.style.animationDuration = (0.5 + Math.random()) + "s";
+            rainDrop.style.animationDelay = Math.random() * 2 + "s";
+            weatherContainer.appendChild(rainDrop);
+        }
+    }
+    createRainDrops(100);
+    
     // --- Friend's default sizing constants ---
     const defaultWidth = "80px";
     const defaultHeight = "60px";
@@ -94,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- Variables for Yes Button dynamic resizing ---
     let yesSize = initialFontSize;
-    let growthFactor = 1.5;
+    let growthFactor = 1.6;
     let noClicks = 0;
 
     const messages = [
