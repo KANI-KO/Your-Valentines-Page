@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- Variables for Yes Button dynamic resizing ---
     let yesSize = initialFontSize;
-    let growthFactor = 1.5;
+    let growthFactor = 1.4;
     let noClicks = 0;
 
     const messages = [
@@ -137,17 +137,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         resetButton.style.display = "block";
 
-        // Replace the GIF container content with a new Tenor embed
-        gifContainer.innerHTML = `
-            <div class="tenor-gif-embed" data-postid="1975786729994891673"
-                 data-share-method="host" data-aspect-ratio="1.04762" data-width="100%">
-            </div>
-        `;
-        let tenorScript = document.createElement("script");
-        tenorScript.type = "text/javascript";
-        tenorScript.async = true;
-        tenorScript.src = "https://tenor.com/embed.js";
-        document.body.appendChild(tenorScript);
+        // Replace the GIF container content with the direct GIF for the yes page
+        gifContainer.innerHTML = `<img src="https://c.tenor.com/G2tnkBFGsZkAAAAd/tenor.gif" alt="Happy Valentine's Gif" style="width:100%;">`;
 
         bgMusic.play();
         startFallingHearts();
@@ -233,16 +224,8 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInterval(heartsInterval);
         document.querySelectorAll(".heart").forEach((heart) => heart.remove());
 
-        gifContainer.innerHTML = `
-            <div class="tenor-gif-embed" data-postid="18045411243514992895"
-                 data-share-method="host" data-aspect-ratio="1" data-width="110">
-            </div>
-        `;
-        let tenorScriptReset = document.createElement("script");
-        tenorScriptReset.type = "text/javascript";
-        tenorScriptReset.async = true;
-        tenorScriptReset.src = "https://tenor.com/embed.js";
-        document.body.appendChild(tenorScriptReset);
+        // Replace the GIF container content with the direct GIF for the options page
+        gifContainer.innerHTML = `<img src="https://media.tenor.com/-m4t6tONGP8AAAAj/peach-goma-peach-and-goma.gif" alt="Peach and Goma" style="width:110px;">`;
         
         // Reset the yesButton's inline transform, if any
         yesButton.style.transform = "none";
@@ -255,8 +238,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         heartsInterval = setInterval(() => {
             let heart = document.createElement("div");
-            heart.innerText = ["🥰", "😘", "🥳", "👩‍❤️‍💋‍👨", "🌹", "🌷", "💐", "🪻", "🪷", "🌺", "🌸", "🌼", "🩷", "❤️", "🧡", "💛", "💚", 
-                               "🩵", "💙", "💜", "💕", "💞", "💓", "💗", "💖", "💘", "💝"][Math.floor(Math.random() * 27)];
+            heart.innerText = ["🥰", "😘", "🥳", "👩‍❤️‍💋‍👨", "🌹", "🌷", "💐", "🪻", "🪷", "🌺", "🌸", "🌼", "🩷", "❤️", 
+                               "🧡", "💛", "💚", "🩵", "💙", "💜", "💕", "💞", "💓", "💗", "💖", "💘", "💝"][Math.floor(Math.random() * 27)];
             heart.classList.add("heart");
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.animationDuration = Math.random() * 2 + 3 + "s";
