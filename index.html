@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Be My Valentine?</title>
-  <!-- Load Google Fonts -->
+  <!-- Load Google Fonts: Pacifico, Sour Gummy, Chewy -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Sour+Gummy&family=Chewy&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -23,7 +23,14 @@
   </style>
 </head>
 <body>
-  <!-- Background container with two copies of the mochi cat GIF -->
+  <!-- Splash Intro Screen -->
+  <div id="splash-screen">
+    <div class="weather-effects"></div>
+    <h1>Another year has passed -- and you, I have something to tell.</h1>
+    <button id="open-message-btn">Open the Message Inbox</button>
+  </div>
+  
+  <!-- Background container with mochi cat GIFs -->
   <div id="cat-background">
       <img class="cat-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb242cmdxbTAwdDR4cHhhcGFlNHpvZ3ZnOGtyY2dtYjcybW9vbGM5bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qFmdpUKAFZ6rMobzzu/giphy.gif" alt="Mochi Cat">
       <img class="cat-gif" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTFwanZ3ZW1nNWM0cWxzOWJ4NnF4N2s2cjBxYjJsZ291ZWZ3aHBoMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1JmGiBtqTuehfYxuy9/giphy.gif" alt="Mochi Cat">
@@ -31,29 +38,34 @@
       <img class="cat-gif" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG5mdWhsdXZ2MWxmY3FndWF5OG56ZHhrZTBuaXdpNmI0MGVjbmppeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0OgdJVNjbcIifqSb7U/giphy.gif" alt="Mochi Cat">
   </div>
   
-  <div class="container">
-    <h1 id="question">Will you be my Valentine?</h1>
-    <div id="intro-screen">
-        <p id="intro-text"></p>
-        <span id="intro-main"></span>
-        <!-- Bongo cat GIF below the intro text -->
-        <img class="bongo-cat" src="https://64.media.tumblr.com/dd35d8033e45129721b41590438d254b/edbf4cb04b19bfa8-54/s400x600/b0be76f1c9b8a37a9926482ef0b6a0f716fdb24c.gifv" alt="Bongo Cat Clapping">
-    </div>
-    <!-- GIF container (Tenor embed) -->
-    <div id="gif-container">
-      <div class="tenor-gif-embed" id="gif" data-postid="18045411243514992895"
-           data-share-method="host" data-aspect-ratio="1" data-width="110">
+  <!-- Main Content (initially hidden) -->
+  <div id="main-content" style="display:none;">
+    <div class="container">
+      <!-- Main question text uses Chewy -->
+      <h1 id="question">Will you be my Valentine?</h1>
+      <!-- Intro Screen with romantic gradient background and typewriter text -->
+      <div id="intro-screen">
+          <p id="intro-text"></p>
+          <span id="intro-main"></span>
+          <!-- Bongo cat GIF below the intro text -->
+          <img class="bongo-cat" src="https://64.media.tumblr.com/dd35d8033e45129721b41590438d254b/edbf4cb04b19bfa8-54/s400x600/b0be76f1c9b8a37a9926482ef0b6a0f716fdb24c.gifv" alt="Bongo Cat Clapping">
       </div>
-      <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+      <!-- GIF container (Tenor embed) -->
+      <div id="gif-container">
+        <div class="tenor-gif-embed" id="gif" data-postid="18045411243514992895"
+             data-share-method="host" data-aspect-ratio="1" data-width="110">
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+      </div>
+  
+      <div class="buttons">
+        <button id="yes-btn" style="font-size: 16px; padding: 10px;">Yes</button>
+        <button id="no-btn">No</button>
+      </div>
+      <p id="response"></p>
     </div>
-
-    <div class="buttons">
-      <button id="yes-btn" style="font-size: 16px; padding: 10px;">Yes</button>
-      <button id="no-btn">No</button>
-    </div>
-    <p id="response"></p>
   </div>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
