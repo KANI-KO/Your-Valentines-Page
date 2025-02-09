@@ -24,6 +24,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     createRainDrops(100);
     
+    // --- Direct GIF URLs for the last page ---
+    const initialGif = "https://www.bigfooty.com/forum/media/goma-heart-jumping-gif.165828/full";
+    const noGifUrls = [
+        "https://media.tenor.com/V8rf6ry-wtgAAAAM/mocha-and-milk-cute.gif",  // 1st No click
+        "https://i.pinimg.com/originals/d9/67/73/d967731c6cdf2ab14492ced0217fdc03.gif",  // 2nd
+        "https://i.pinimg.com/originals/70/32/53/703253ba614066cd6a7b5dc675152c5c.gif",  // 3rd
+        "https://gifdb.com/images/high/peach-and-goma-498-x-427-gif-pziu8zkhw9c8we4m.gif",  // 4th
+        "https://gifdb.com/images/high/cute-cartoon-goma-sad-w5r83ltcc4zv6hi5.gif",  // 5th
+        "https://forums.pokemmo.com/uploads/monthly_2024_04/baby-peach-baby.gif.1fb957019dbae6b0619812225dbeb062.gif"  // 6th
+    ];
+    const finalYesGif = "https://gifdb.com/images/high/peach-and-goma-kissing-love-you-93bv2g2zpuup4979.gif";
+    
+    // Set the initial GIF in the gif container
+    let gifContainer = document.getElementById("gif-container");
+    gifContainer.innerHTML = `<img src="${initialGif}" alt="Initial Gif" style="width:110px;">`;
+
     // --- Friend's default sizing constants ---
     const defaultWidth = "80px";
     const defaultHeight = "60px";
@@ -93,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- Main Functionality Variables ---
     let responseText = document.getElementById("response");
     let questionText = document.getElementById("question");
-    let gifContainer = document.getElementById("gif-container");
     let heartsInterval;
 
     // --- Create Reset Button ---
@@ -137,8 +152,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         resetButton.style.display = "block";
 
-        // Replace the GIF container content with the direct GIF for the yes page
-        gifContainer.innerHTML = `<img src="https://c.tenor.com/G2tnkBFGsZkAAAAd/tenor.gif" alt="Happy Valentine's Gif" style="width:100%;">`;
+        // Replace the GIF container content with the final Yes page GIF
+        gifContainer.innerHTML = `<img src="${finalYesGif}" alt="Final Yes Gif" style="width:100%;">`;
 
         bgMusic.play();
         startFallingHearts();
@@ -148,9 +163,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- No Button Click Functionality ---
     noButton.addEventListener("click", () => {
-        if (noClicks === 5) {  // On the 6th click (0-based count)
+        noClicks++;
+        if (noClicks === 6) {  // On the 6th No click
             questionText.innerText = "Seems like you're a bit hesitant... How about clicking 'Yes, please!' instead?";
             noButton.style.display = "none"; // Hide original No button
+
+            // Update gif container with the 6th No gif image
+            gifContainer.innerHTML = `<img src="${noGifUrls[5]}" alt="No Gif 6" style="width:110px;">`;
 
             // Create alternative Yes button
             let alternativeYesButton = document.createElement("button");
@@ -162,11 +181,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             alternativeYesButton.addEventListener("click", handleYesClick);
         } else {
-            if (noClicks < messages.length) {
-                questionText.innerText = messages[noClicks];
+            if (noClicks <= messages.length) {
+                questionText.innerText = messages[noClicks - 1];
             } else {
                 questionText.innerText = messages[messages.length - 1];
             }
+            // Update gif container with the corresponding No gif image for clicks 1-5
+            if (noClicks <= 5) {
+                gifContainer.innerHTML = `<img src="${noGifUrls[noClicks - 1]}" alt="No Gif ${noClicks}" style="width:110px;">`;
+            }
+            // Update yesButton size as before
             let computedStyle = window.getComputedStyle(yesButton);
             let currentWidth = parseFloat(computedStyle.width);
             let currentHeight = parseFloat(computedStyle.height);
@@ -187,8 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
             yesButton.style.width = newWidth + "px";
             yesButton.style.height = newHeight + "px";
             yesButton.style.fontSize = newFontSize + "px";
-
-            noClicks++;
         }
     });
 
@@ -224,8 +246,8 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInterval(heartsInterval);
         document.querySelectorAll(".heart").forEach((heart) => heart.remove());
 
-        // Replace the GIF container content with the direct GIF for the options page
-        gifContainer.innerHTML = `<img src="https://gifdb.com/images/high/peach-and-goma-kissing-love-you-93bv2g2zpuup4979.webp" alt="Peach and Goma" style="width:110px;">`;
+        // Reset the gifContainer to show the initial GIF
+        gifContainer.innerHTML = `<img src="${initialGif}" alt="Initial Gif" style="width:110px;">`;
         
         // Reset the yesButton's inline transform, if any
         yesButton.style.transform = "none";
