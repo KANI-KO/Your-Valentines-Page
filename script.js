@@ -1,28 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // --- Friend's default sizing constants ---
+    // Define default sizing constants
     const defaultWidth = "80px";
     const defaultHeight = "60px";
     const defaultFontSize = "25px";
+    const initialPadding = "10px 20px";
+    const initialFontSize = parseFloat(defaultFontSize); // 25
 
-    // --- Set initial button sizes ---
+    // Grab elements from the DOM
     let yesButton = document.getElementById("yes-btn");
     let noButton = document.getElementById("no-btn");
+    let introScreen = document.getElementById("intro-screen");
+    let introText = document.getElementById("intro-text");
+    let responseText = document.getElementById("response");
+    let questionText = document.getElementById("question");
+    let gifContainer = document.getElementById("gif-container");
 
+    // Set initial button sizes
     yesButton.style.width = defaultWidth;
     noButton.style.width = defaultWidth;
     yesButton.style.height = defaultHeight;
     noButton.style.height = defaultHeight;
     yesButton.style.fontSize = defaultFontSize;
     noButton.style.fontSize = defaultFontSize;
+    yesButton.style.padding = initialPadding;
+    noButton.style.padding = initialPadding;
 
-    // --- Global constants for dynamic resizing ---
-    const initialFontSize = parseFloat(defaultFontSize); // 25
-    const initialPadding = "10px 20px";
-
-    // --- Typewriter Intro Code ---
-    let introScreen = document.getElementById("intro-screen");
-    let introText = document.getElementById("intro-text");
-
+    // Intro lines
     const introLines = [
         "Hey, we've been through a lot together...",
         "And now, our first Valentine's Day is almost here.",
@@ -48,17 +51,16 @@ document.addEventListener("DOMContentLoaded", function () {
             charIndex--;
             setTimeout(deleteLine, 30);
         } else if (lineIndex < introLines.length - 1) {
-            // Move to the next sentence: reset charIndex and clear text
             lineIndex++;
-            charIndex = 0;
             introText.innerHTML = "";
+            charIndex = 0;
             setTimeout(typeNextChar, 500);
         } else {
-            // After the last sentence, fade out the intro screen (if intended)
+            // After the last sentence, fade out the intro screen
             setTimeout(() => {
-                introText.classList.add("fade-out-text"); 
+                introText.classList.add("fade-out-text");
                 setTimeout(() => {
-                    introScreen.classList.add("hidden"); 
+                    introScreen.classList.add("hidden");
                     setTimeout(() => { introScreen.style.display = "none"; }, 1000);
                 }, 1000);
             }, 2000);
@@ -68,27 +70,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Start the typewriter animation after 2 seconds
     setTimeout(typeNextChar, 2000);
 
-    // --- Main Functionality Variables ---
-    let responseText = document.getElementById("response");
-    let questionText = document.getElementById("question");
-    let gifContainer = document.getElementById("gif-container");
+    // Other global variables and constants
     let heartsInterval;
-
-    // --- Create Reset Button ---
-    let resetButton = document.createElement("button");
-    resetButton.innerText = "Return to Main Title";
-    resetButton.id = "reset-btn";
-    resetButton.style.display = "none";
-    document.body.appendChild(resetButton);
-
-    // --- Background Music ---
-    let bgMusic = new Audio("music.mp3"); 
-
-    // --- Variables for Yes Button dynamic resizing ---
+    let bgMusic = new Audio("music.mp3");
     let yesSize = initialFontSize;
-    let growthFactor = 1.6;
+    let growthFactor = 1.8;
     let noClicks = 0;
-
     const messages = [
         "Really no?",
         "Are you positive?",
@@ -98,21 +85,59 @@ document.addEventListener("DOMContentLoaded", function () {
         "I will be VERY sad if you say no..."
     ];
 
-    // --- Yes Button Click Functionality ---
-    function handleYesClick() {
+    // "No" button: update the question text and increase the Yes button size
+    noButton.addEventListener("click", () => {
+        if (noClicks < messages.length) {
+            questionText.innerText = messages[noClicks];
+        } else {
+            questionText.innerText = messages[messages.length - 1];
+        }
+
+        // Use computed style for accurate sizing:
+        let computedStyle = window.getComputedStyle(yesButton);
+        let currentWidth = parseFloat(computedStyle.width);
+        let currentHeight = parseFloat(computedStyle.height);
+        let currentFontSize = parseFloat(computedStyle.fontSize);
+
+        // Calculate new sizes using the growth factor
+        let newWidth = currentWidth * growthFactor;
+        let newHeight = currentHeight * growthFactor;
+        let newFontSize = currentFontSize * growthFactor;
+
+        // Set maximum allowed dimensions and font size
+        const maxWidth = 1500;
+        const maxHeight = 1000;
+        const maxFontSize = 500; // Adjust this value as desired
+
+        if (newWidth > maxWidth) {
+            newWidth = maxWidth;
+        }
+        if (newHeight > maxHeight) {
+            newHeight = maxHeight;
+        }
+        if (newFontSize > maxFontSize) {
+            newFontSize = maxFontSize;
+        }
+
+        // Apply the new dimensions and font size to the Yes button
+        yesButton.style.width = newWidth + "px";
+        yesButton.style.height = newHeight + "px";
+        yesButton.style.fontSize = newFontSize + "px";
+
+        noClicks++;
+    });
+
+    // "Yes" button click: replace content, play music, and start falling hearts
+    yesButton.addEventListener("click", () => {
         questionText.innerText = "Happy Valentine's!";
         questionText.classList.add("big-text");
 
         responseText.innerHTML = "Yay! I love you!";
         responseText.classList.add("medium-text");
 
-        // Hide yes/no buttons (and alternative if present)
+        // Hide the Yes/No buttons and show the reset button
         yesButton.style.display = "none";
         noButton.style.display = "none";
-        let altYesButton = document.getElementById("alternative-yes-btn");
-        if (altYesButton) {
-            altYesButton.style.display = "none";
-        }
         resetButton.style.display = "block";
 
         // Replace the GIF container content with a new Tenor embed
@@ -129,100 +154,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
         bgMusic.play();
         startFallingHearts();
-    }
-
-    yesButton.addEventListener("click", handleYesClick);
-
-    // --- No Button Click Functionality ---
-    noButton.addEventListener("click", () => {
-        if (noClicks === 4) {  // On the 6th click
-            questionText.innerText = "Seems like you're a bit hesitant... How about clicking 'Yes, please!' instead?";
-            noButton.style.display = "none"; // Hide original No button
-    
-            // Create alternative Yes button with initial styles
-            let alternativeYesButton = document.createElement("button");
-            alternativeYesButton.id = "alternative-yes-btn";
-            alternativeYesButton.innerText = "Yes, please!";
-            alternativeYesButton.style.fontSize = initialFontSize + "px";
-            alternativeYesButton.style.padding = initialPadding;
-            document.querySelector(".buttons").appendChild(alternativeYesButton);
-    
-            alternativeYesButton.addEventListener("click", handleYesClick);
-        } else {
-            if (noClicks < messages.length) {
-                questionText.innerText = messages[noClicks];
-            } else {
-                questionText.innerText = messages[messages.length - 1];
-            }
-            // Use computed style for accurate sizing:
-            let computedStyle = window.getComputedStyle(yesButton);
-            let currentWidth = parseFloat(computedStyle.width);
-            let currentHeight = parseFloat(computedStyle.height);
-            let currentFontSize = parseFloat(computedStyle.fontSize);
-    
-            // Calculate new sizes using the growth factor
-            let newWidth = currentWidth * growthFactor;
-            let newHeight = currentHeight * growthFactor;
-            let newFontSize = currentFontSize * growthFactor;
-    
-            // Set maximum allowed dimensions and font size
-            const maxWidth = 1500;
-            const maxHeight = 1000;
-            const maxFontSize = 500;  // Change this value as desired
-    
-            if (newWidth > maxWidth) {
-                newWidth = maxWidth;
-            }
-            if (newHeight > maxHeight) {
-                newHeight = maxHeight;
-            }
-            if (newFontSize > maxFontSize) {
-                newFontSize = maxFontSize;
-            }
-    
-            yesButton.style.width = newWidth + "px";
-            yesButton.style.height = newHeight + "px";
-            yesButton.style.fontSize = newFontSize + "px";
-            
-            noClicks++;
-        }
     });
 
-    // --- Reset Button Functionality ---
+    // "Reset" button: 回到最初的美好
+    let resetButton = document.createElement("button");
+    resetButton.innerText = "Return to Main Title";
+    resetButton.id = "reset-btn";
+    resetButton.style.display = "none"; // Hidden at start
+    document.body.appendChild(resetButton);
+
     resetButton.addEventListener("click", () => {
         questionText.innerText = "Will you be my Valentine?";
         questionText.classList.remove("big-text");
 
-        yesSize = initialFontSize;
-        yesButton.style.fontSize = initialFontSize + "px";
+        // Reset Yes and No buttons to their original sizes and padding
+        yesButton.style.width = defaultWidth;
+        yesButton.style.height = defaultHeight;
+        yesButton.style.fontSize = defaultFontSize;
         yesButton.style.padding = initialPadding;
-        noButton.style.fontSize = initialFontSize + "px";
+
+        noButton.style.width = defaultWidth;
+        noButton.style.height = defaultHeight;
+        noButton.style.fontSize = defaultFontSize;
         noButton.style.padding = initialPadding;
 
+        // Reset dynamic variables
         noClicks = 0;
+        yesSize = initialFontSize;
+
+        // Clear any response text and related classes
         responseText.innerHTML = "";
         responseText.classList.remove("medium-text");
 
+        // Show the Yes/No buttons and hide the Reset button
         yesButton.style.display = "inline-block";
         noButton.style.display = "inline-block";
         resetButton.style.display = "none";
 
-        let altYesButton = document.getElementById("alternative-yes-btn");
-        if (altYesButton) {
-            altYesButton.remove();
-        }
-
+        // Stop the background music and reset its time
         bgMusic.pause();
         bgMusic.currentTime = 0;
 
+        // Stop the falling hearts animation and remove any existing heart elements
         clearInterval(heartsInterval);
         document.querySelectorAll(".heart").forEach((heart) => heart.remove());
 
+        // Restore the original GIF in the GIF container
         gifContainer.innerHTML = `
             <div class="tenor-gif-embed" data-postid="18045411243514992895"
                  data-share-method="host" data-aspect-ratio="1" data-width="110">
             </div>
         `;
+        
+        // Reload the Tenor embed script
         let tenorScriptReset = document.createElement("script");
         tenorScriptReset.type = "text/javascript";
         tenorScriptReset.async = true;
@@ -230,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(tenorScriptReset);
     });
 
-    // --- Falling Hearts Animation ---
+    // Falling Hearts Animation Function
     function startFallingHearts() {
         if (heartsInterval) {
             clearInterval(heartsInterval);
@@ -242,9 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.animationDuration = Math.random() * 2 + 3 + "s";
             document.body.appendChild(heart);
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
+            setTimeout(() => { heart.remove(); }, 5000);
         }, 250);
     }
 });

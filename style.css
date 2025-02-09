@@ -5,7 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     /* Use Pacifico for general text */
-    font-family: 'Pacifico', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Sour Gummy', cursive;
     background-color: pink;
     text-align: center;
 }
@@ -57,7 +57,7 @@ h1 {
 }
 /* Use Chewy for the main question text (reconsideration messages) */
 #question {
-    font-family: 'Chewy', cursive;
+    font-family: 'Sour Gummy', cursive;
 }
 
 .buttons {
@@ -168,7 +168,8 @@ button {
 /* Bongo cat style in intro */
 .bongo-cat {
     margin-top: 20px;
-    width: 150px;
+    width: 300px;
+    height: auto;
 }
 
 /* Fade out and hidden classes for typewriter effect */
