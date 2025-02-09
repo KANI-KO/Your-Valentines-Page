@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- Variables for Yes Button dynamic resizing ---
     let yesSize = initialFontSize;
-    let growthFactor = 1.6;
+    let growthFactor = 1.5;
     let noClicks = 0;
 
     const messages = [
