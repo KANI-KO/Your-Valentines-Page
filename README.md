@@ -4,7 +4,7 @@
 
 :¨ ·.· ¨: <br>
  `· . 𐙚
-#### ***How dost thou shine, my sweetest star,***
+### ***How dost thou shine, my sweetest star,***
 
 *More fair than dawn’s first golden bar?*
 
