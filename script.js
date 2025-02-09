@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".heart").forEach((heart) => heart.remove());
 
         // Replace the GIF container content with the direct GIF for the options page
-        gifContainer.innerHTML = `<img src="https://media.tenor.com/-m4t6tONGP8AAAAj/peach-goma-peach-and-goma.gif" alt="Peach and Goma" style="width:110px;">`;
+        gifContainer.innerHTML = `<img src="https://gifdb.com/images/high/peach-and-goma-kissing-love-you-93bv2g2zpuup4979.webp" alt="Peach and Goma" style="width:110px;">`;
         
         // Reset the yesButton's inline transform, if any
         yesButton.style.transform = "none";
