@@ -68,7 +68,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-family: 'Sour Gummy', cursive;
+  font-family: 'Pacifico', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background-color: pink;
   text-align: center;
 }
@@ -121,7 +121,7 @@ h1 {
 }
 
 #question {
-  font-family: 'Sour Gummy', cursive;
+  font-family: 'Chewy', cursive;
 }
 
 .buttons {
@@ -197,6 +197,7 @@ button {
   100% { transform: scale(1); }
 }
 
+/* Intro Screen styling */
 #intro-screen {
   position: fixed;
   top: 0;
@@ -224,8 +225,7 @@ button {
 
 .bongo-cat {
   margin-top: 20px;
-  width: 300px;
-  height: auto;
+  width: 150px;
 }
 
 .fade-out-text {
