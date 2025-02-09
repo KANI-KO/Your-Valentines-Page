@@ -5,7 +5,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #a8e6cf, #dcedc1);
+  /* Updated background image for splash screen */
+  background: url('https://img.goodfon.com/original/2560x1600/b/4d/badfon-cvetok-vesna-fon.jpg') no-repeat center center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,10 +53,10 @@
   position: absolute;
   bottom: 100%;
   width: 2px;
-  height: 15px;
-  background: rgba(255, 255, 255, 0.8);
+  height: 20px;  /* Increased height for more visible rain */
+  background: rgba(255, 255, 255, 0.9);  /* Brighter white */
   animation: rain-fall 1s linear infinite;
-  opacity: 0.6;
+  opacity: 1;  /* Full opacity */
 }
 
 @keyframes rain-fall {
