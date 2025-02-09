@@ -1,4 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // ----- SPLASH SCREEN HANDLING -----
+    const splashBtn = document.getElementById("open-message-btn");
+    splashBtn.addEventListener("click", function() {
+        // Hide the splash screen and reveal main content
+        document.getElementById("splash-screen").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+    });
+
+    // (Optional) Create rain drops for weather effects on the splash screen
+    function createRainDrops(num) {
+        const weatherContainer = document.querySelector('.weather-effects');
+        for (let i = 0; i < num; i++) {
+            let rainDrop = document.createElement('div');
+            rainDrop.classList.add('rain');
+            // Position the raindrop at a random horizontal location
+            rainDrop.style.left = Math.random() * 100 + "vw";
+            // Randomize the falling duration for variety
+            rainDrop.style.animationDuration = (0.5 + Math.random()) + "s";
+            // Random delay before each drop starts falling
+            rainDrop.style.animationDelay = Math.random() * 2 + "s";
+            weatherContainer.appendChild(rainDrop);
+        }
+    }
+    createRainDrops(50); // Adjust the number of drops as desired
+
+    // ----- EXISTING CODE BELOW -----
     // Define default sizing constants
     const defaultWidth = "80px";
     const defaultHeight = "60px";
@@ -25,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     yesButton.style.padding = initialPadding;
     noButton.style.padding = initialPadding;
 
-    // Intro lines
+    // Intro lines for typewriter effect
     const introLines = [
         "Hey, we've been through a lot together...",
         "And now, our first Valentine's Day is almost here.",
